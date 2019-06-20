@@ -20,7 +20,9 @@
   <%= @address.zipcode %>
 </p>
 
-Today's High Temperature: <%= @address.getHighTemp(@address.zipcode) %>
+<p>Current Temperature: <%= @address.getCurrentTemp(@address.zipcode) %>° F</p>
+<p>Today's High Temperature: <%= @address.getHighTemp(@address.zipcode) %>° F</p>
+<p>Today's Low Temperature: <%= @address.getLowTemp(@address.zipcode) %>° F</p>
 
 
 <%= link_to 'Edit', edit_address_path(@address) %> |
