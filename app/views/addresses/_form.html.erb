@@ -2,6 +2,13 @@
   <h1 class="display-3">Welcome to Scott's Weather Forecaster</h1>
 </div>
 
+<div class="row">
+  <div class="col-md-4">
+    <p class="paragraph-padding-left">Please fill out your address in the form below. All fields are required. Once you submit the form, you will be able to
+    see the current temperature, as well as the forecasted high and low temperatures for the day.</p>
+  </div>
+</div>
+
 <%= form_with(model: address, local: true) do |form| %>
   <% if address.errors.any? %>
     <div id="error_explanation">
@@ -39,3 +46,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div>
