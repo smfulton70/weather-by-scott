@@ -13,6 +13,7 @@ class Address < ApplicationRecord
     high = high_and_low["Maximum"]["Value"]
     low = high_and_low["Minimum"]["Value"]
     current = HTTParty.get("http://dataservice.accuweather.com/currentconditions/v1/#{locationKey}?apikey=#{AUTH_DETAILS}")[0]["Temperature"]["Imperial"]["Value"]
+    five = HTTParty.get("http://dataservice.accuweather.com/forecasts/v1/daily/5day/#{locationKey}?apikey=#{AUTH_DETAILS}")
     temps = {high_temp: high, low_temp: low, current_temp: current}
   end
 end
