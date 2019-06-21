@@ -3,47 +3,49 @@
 </div>
 
 <div class="row">
-  <div class="col-md-4">
-    <p class="paragraph-padding-left">Please fill out your address in the form below. All fields are required. Once you submit the form, you will be able to
+  <div class="col-md-6 padding-left-3rem">
+    <p>Please fill out your address in the form below. All fields are required. Once you submit the form, you will be able to
     see the current temperature, as well as the forecasted high and low temperatures for the day.</p>
   </div>
 </div>
 
-<%= form_with(model: address, local: true) do |form| %>
-  <% if address.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(address.errors.count, "error") %> prohibited this address from being saved:</h2>
+<div class="row">
+  <div class="col-md-6 padding-left-3rem">
+  <%= form_with(model: address, local: true) do |form| %>
+    <% if address.errors.any? %>
+      <div id="error_explanation">
+        <h4><%= pluralize(address.errors.count, "error") %> prohibited this address from being saved:</h4>
+        <ul>
+        <% address.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-      <% address.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="field">
+      <%= form.label :street_and_number %>
+      <%= form.text_field :street_and_number %>
+    </div>
+
+    <div class="field">
+      <%= form.label :city %>
+      <%= form.text_field :city %>
+    </div>
+
+    <div class="field">
+      <%= form.label :state %>
+      <%= form.text_field :state %>
+    </div>
+
+    <div class="field">
+      <%= form.label :zipcode %>
+      <%= form.text_field :zipcode %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :street_and_number %>
-    <%= form.text_field :street_and_number %>
   </div>
-
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
-  </div>
-
-  <div class="field">
-    <%= form.label :state %>
-    <%= form.text_field :state %>
-  </div>
-
-  <div class="field">
-    <%= form.label :zipcode %>
-    <%= form.text_field :zipcode %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
 </div>
